@@ -46,6 +46,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -193,7 +194,6 @@ private fun PostMetadata(
     CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
         Text(
             text = text,
-            style = MaterialTheme.typography.body2,
             modifier = modifier
         )
     }
@@ -259,3 +259,4 @@ private fun FeaturedPostDarkPreview() {
 private fun HomePreview() {
     Home()
 }
+
