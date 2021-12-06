@@ -49,7 +49,7 @@ class HelloCodelabActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // doAfterTextChange is an event that modifies state
-        binding.textInput.doAfterTextChanged { text ->
+        binding.textInput.doAfterTextChanged {text ->
             name = text.toString()
             updateHello()
         }
@@ -68,6 +68,19 @@ class HelloCodelabActivity : AppCompatActivity() {
  */
 class HelloViewModel : ViewModel() {
 
+    // LiveData holds state which is observed by the UI
+    // (state flows down from ViewModel)
+    private val _name = MutableLiveData("")
+    val name: LiveData<String> = _name
+
+    // onNameChanged is an event we're defining that the UI can invoke
+    // (events flow up from UI)
+    fun onNameChanged(newName: String) {
+        _name.value = newName
+    }
+}
+
+class HelloCodelabViewModel: ViewModel() {
     // LiveData holds state which is observed by the UI
     // (state flows down from ViewModel)
     private val _name = MutableLiveData("")
